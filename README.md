@@ -1,4 +1,5 @@
 # test websitenya langsung: https://reisya-nurfaris-da.github.io/profile/
+> gambarnya ada yang flickering kalau online, soalnya harus download gambarnya dulu. Belum tau cara baikinnya. Biar gak flickering ya buka lokal aja dulu
 
 library luar yang bukan dari bootstrap cuma satu: typed.js
 
