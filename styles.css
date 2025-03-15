@@ -1,0 +1,375 @@
+/* global */
+.card-title,
+.card-text,
+.navbar-brand,
+.nav-link,
+h1, hr, span,
+p {
+  color: #fff;
+}
+
+h2,h5,.display-3,.marquee{
+  font-family:"Raleway";
+  font-weight: 500;
+}
+
+body {
+  background: url('img/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* mica */
+.mica {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+}
+
+/* nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  background: transparent;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  font-family:"Raleway";
+  font-weight: 500;
+  color: #000000; 
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+  color: #ffffff; 
+}
+
+/* hero */
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  color: #000;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('img/banner.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.light-mode h1, .light-mode hr{
+  color: #000 !important;
+}
+
+.hero.light-mode .hero-overlay {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.hero.light-mode .hero-content {
+  color: #000;
+}
+
+.scroll-arrow {
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+
+.scroll-arrow a {
+  display: inline-block;
+  color: #000;
+  font-size: 2rem;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+
+/* ref: https://stackoverflow.com/a/41629935 */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* profile + cards */
+#profile {
+  scroll-margin-top: 100px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+
+  object-fit: cover;
+}
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bio {
+  text-align: justify;
+}
+
+/* marquee */
+/* refs: 
+    https://ryanmulligan.dev/blog/css-marquee/ 
+    https://codepen.io/hexagoncircle/pen/eYMrGwW  */
+.marquee {
+  --gap: 0.5rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  background-color: #000;
+  padding: 10px 0;
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.marquee.enable-animation .marquee__content {
+  animation: scroll 30s linear infinite;
+}
+
+.marquee__content > span {
+  color: white;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+/* skill accordion */
+.light-mode .accordion-button {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border: 0;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.light-mode .accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.light-mode .accordion-button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background-color: #000;
+  transition: height 0.3s ease;
+}
+
+.light-mode .accordion-button::after{
+  opacity: 0;
+}
+
+.light-mode .accordion-button:not(.collapsed) {
+  color: #000;
+}
+
+.light-mode .accordion-button:not(.collapsed)::before {
+  height: 100%;
+}
+
+.light-mode .accordion-item {
+  border: none;
+}
+
+.light-mode .accordion-body {
+  background-color: #fff;
+  color: #555;
+  padding: 1.25rem;
+}
+
+
+/* skill accordion img */
+#display-image {
+  max-width: 100%;
+  max-height: 50vh; 
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* light mode */
+.light-mode h2,
+.light-mode p,
+.light-mode span {
+  color: #000 ;
+}
+
+.white-bg {
+  background-color: #fff;
+  color: #000;
+  padding: 2rem 0; 
+}
+
+.white-bg h2,
+.white-bg p,
+.white-bg .accordion-button{
+  color: #7f7f7f;
+}
+
+/* stat */
+.counter-box {
+  border-radius: 15px;
+  height: 150px;
+  transition: transform 0.3s ease;
+}
+
+.counter-box h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.counter-box p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.counter-box.dark-mode {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+.counter-box.light-mode {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #dee2e6;
+}
+
+/* galer */
+.image-grid .grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1;
+}
+
+.image-grid .grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.image-grid .overlay {
+  color:#fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.overlay-text{
+  text-align: center;
+  color:#fff !important;
+  font-size: 30px;
+  margin-top: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* ref: https://codepen.io/nxworld/pen/ZYNOBZ  (zoom in #1 + opacity #2)*/
+.image-grid .grid-item:hover .grid-image {
+  transform: scale(1.5);
+}
+.image-grid .grid-item:hover .overlay {
+  opacity: 1;
+}
+
+
+.image-grid .expand-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(0);
+}
+
+.image-grid .grid-item:hover .expand-btn {
+  opacity: 1;
+  transform: translateY(20px); 
+}
+.image-grid .expand-btn i {
+  color: #000;
+  font-size: 1.5rem;
+}
