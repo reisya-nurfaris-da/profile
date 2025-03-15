@@ -1,3 +1,5 @@
+# test websitenya langsung: https://reisya-nurfaris-da.github.io/profile/
+
 library luar yang bukan dari bootstrap cuma satu: typed.js
 
 referensi luar yang bukan dari bootstrap ada saya taruh di komen (ref:...)
